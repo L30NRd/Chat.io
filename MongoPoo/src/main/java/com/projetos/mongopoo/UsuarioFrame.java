@@ -32,7 +32,7 @@ public class UsuarioFrame extends JFrame {
 
         listaModel = new DefaultListModel<>();
         listaUsuarios = new JList<>(listaModel);
-        listaUsuarios.setCellRenderer(new UsuarioRenderer()); // Custom renderer
+        listaUsuarios.setCellRenderer(new UsuarioRenderer());
         JScrollPane scrollUsuarios = new JScrollPane(listaUsuarios);
         carregarUsuarios();
 
@@ -83,7 +83,7 @@ public class UsuarioFrame extends JFrame {
     }
 
     private void carregarUsuarios() {
-        List<UsuarioInfo> usuarios = controller.getInformacoesUsuarios(); // lista com username e email
+        List<UsuarioInfo> usuarios = controller.getInformacoesUsuarios();
         listaModel.clear();
         for (UsuarioInfo user : usuarios) {
             listaModel.addElement(user);
@@ -117,7 +117,7 @@ public class UsuarioFrame extends JFrame {
 
         EditarContaDialog dialog = new EditarContaDialog(this, controller, selecionado.username);
         dialog.setVisible(true);
-        carregarUsuarios(); // Atualiza a lista após edição
+        carregarUsuarios();
     }
 
 
@@ -142,7 +142,7 @@ public class UsuarioFrame extends JFrame {
         if (confirm == JOptionPane.YES_OPTION) {
             if (controller.removerUsuario(selecionado.username)) {
                 JOptionPane.showMessageDialog(this, "Conta removida com sucesso.");
-                if (selecionado.username.equals(usuarioAtual)) dispose(); // se for o próprio usuário
+                if (selecionado.username.equals(usuarioAtual)) dispose();
                 carregarUsuarios();
             } else {
                 JOptionPane.showMessageDialog(this, "Erro ao remover conta.", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -151,7 +151,6 @@ public class UsuarioFrame extends JFrame {
     }
 
 
-    // Renderer customizado para exibir nome + email com linha separadora
     private static class UsuarioRenderer extends DefaultListCellRenderer {
         @Override
         public Component getListCellRendererComponent(JList<?> list, Object value, int index,
