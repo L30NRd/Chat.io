@@ -79,8 +79,8 @@ public class LoginFrame extends JFrame {
                     JOptionPane.showMessageDialog(null, "Login bem-sucedido!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
                     UsuarioFrame usuarioFrame = new UsuarioFrame(username);
-                    usuarioFrame.setVisible(true); // <- Isso é essencial
-                    dispose(); // Fecha a tela de login
+                    usuarioFrame.setVisible(true);
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos.", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
